@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    <details is="custom-details"> 
+        <summary>Quetstion 1</summary>
+        <div class="details">
+        
+            <p class="summary">Heading 1</p>
+        </div>
+      
+    </details>
+
+    <details is="custom-details"> 
+        <summary>Quetstion 1</summary>
+        <div class="details">
+            
+            <p class="summary">Heading 1</p>
+        </div>
+      
+    </details>
+
+    <details is="custom-details"> 
+        <summary>Quetstion 1</summary>
+        <div class="details">
+            <p class="summary">Heading 1</p>
+        </div>
+      
+    </details>
+
+    <script>
+        class CustomDetails extends HTMLDetailsElement {
+            constructor() {
+                super();
+
+                this.addEventListener("click", (event) => {
+                    this.closest('body').querySelectorAll('details').forEach(elem => {
+                        if ( elem != this)
+                            elem.removeAttribute('open')
+                    })
+                });
+            }
+        }
+
+        customElements.define('custom-details', CustomDetails, { extends: 'details' });
+    </script>
+</body>
+
+</html>
+
